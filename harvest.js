@@ -26,8 +26,6 @@
 	harvestUrl = harvestUrl.replace( '#TODONAME#', encodeURIComponent( todoName ) );
 	harvestUrl = harvestUrl.replace( '#BASEURL#', encodeURIComponent( url ) );
 	
-	console.log( harvestUrl );
-	
 	iframe = document.createElement( 'iframe' );
 	iframe.setAttribute( 'width', iframeWidth );
 	iframe.setAttribute( 'height', iframeHeight );
