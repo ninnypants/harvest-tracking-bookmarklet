@@ -41,7 +41,7 @@
 	iframeContainer.style.top = 0;
 	iframeContainer.style.left = 0;
 	iframeContainer.style.background = 'rgba( 0, 0, 0, 0.25 )';
-	iframeContainer.style.zIndex = 100;
+	iframeContainer.style.zIndex = 1000;
 	
 	iframeContainer.appendChild( iframe );
 	document.body.appendChild( iframeContainer );
