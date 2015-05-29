@@ -17,6 +17,7 @@ module.exports = function( grunt ) {
 			options: {
 				sourceMap: false,
 				screwIE8: true,
+				// setup a closure here or firefox will just navigate to a page with the text of true
 				banner: 'javascript:(function(){',
 				footer: '})();',
 				preserveComments: false,
