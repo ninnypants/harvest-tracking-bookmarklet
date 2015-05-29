@@ -1,1 +1,1 @@
-<a href="/* BUILD_INCLUDE('bookmarklet.js') */">Harvest</a>
+<a href="#/* BUILD_INCLUDE('bookmarklet.js') */">Harvest</a>
