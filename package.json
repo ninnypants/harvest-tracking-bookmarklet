@@ -1,0 +1,22 @@
+{
+  "name": "harvest-track-bookmarklet",
+  "version": "1.0.0",
+  "description": "Bookmarklet to pull Harvest Chrome app modal into other browsers.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ninnypants/harvest-tracking-bookmarklet.git"
+  },
+  "author": "ninnypants <tyrel@ninnypants.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/ninnypants/harvest-tracking-bookmarklet/issues"
+  },
+  "homepage": "https://github.com/ninnypants/harvest-tracking-bookmarklet",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "matchdep": "^0.3.0",
+    "require": "^2.4.18"
+  }
+}
