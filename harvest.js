@@ -24,6 +24,25 @@
 		todoID      = data[3];
 		projectName = document.querySelector( 'a[href="/' + data[1] + '/projects/' + data[2] + '"]' ).textContent;
 		todoName    = document.querySelector( '#todo_' + data[3] + ' .wrapper .content_for_perma' ).textContent;
+	} else if ( url.match( /.+\.atlassian\.net/ ) ) {
+		data = url.match( /https?:\/\/(.+)\.atlassian\.net\/browse\/(([A-Z]+)-\d+)/ );
+		console.log( data );
+		// Didn't find a ticket id
+		if ( 4 !== data.length ) {
+			return;
+		}
+
+		accountID   = data[1];
+		projectID   = (function(){
+			var url = window.location.protocol + '//' + window.location.host + '/rest/api/2/project/' + data[3];
+			var xhr = new XMLHttpRequest();
+			xhr.open( 'get', url, false );
+			xhr.send();
+			return xhr.response.id;
+		})();
+		todoID      = window.JIRA.Issue.getIssueId();
+		projectName = document.getElementById( 'project-name-val' ).textContent;
+		todoName    = data[2] + ' ' + document.getElementById( 'summary-val' ).textContent;
 	}
 
 	harvestUrl = harvestUrl.replace( '#ACCOUNTID#', encodeURIComponent( accountID ) );
