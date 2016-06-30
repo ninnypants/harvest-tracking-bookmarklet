@@ -10,19 +10,26 @@
 	iframeContainer;
 
 	url = window.location.toString();
-	data = url.match( /basecamp.com\/(\d+)\/projects\/(\d+)\/todos\/(\d+)/ );
-	// we aren't on a todo page
-	if ( 4 != data.length ) {
-		return;
+
+	if ( url.match( /basecamp\.com/ ) ) {
+		data = url.match( /basecamp.com\/(\d+)\/projects\/(\d+)\/todos\/(\d+)/ );
+
+		// we aren't on a todo page
+		if ( 4 != data.length ) {
+			return;
+		}
+
+		accountID   = data[1];
+		projectID   = data[2];
+		todoID      = data[3];
+		projectName = document.querySelector( 'a[href="/' + data[1] + '/projects/' + data[2] + '"]' ).textContent;
+		todoName    = document.querySelector( '#todo_' + data[3] + ' .wrapper .content_for_perma' ).textContent;
 	}
 
-	projectName = document.querySelector( 'a[href="/' + data[1] + '/projects/' + data[2] + '"]' ).textContent;
-	todoName = document.querySelector( '#todo_' + data[3] + ' .wrapper .content_for_perma' ).textContent;
-
-	harvestUrl = harvestUrl.replace( '#ACCOUNTID#', data[1] );
-	harvestUrl = harvestUrl.replace( '#PROJECTID#', data[2] );
+	harvestUrl = harvestUrl.replace( '#ACCOUNTID#', encodeURIComponent( accountID ) );
+	harvestUrl = harvestUrl.replace( '#PROJECTID#', encodeURIComponent( projectID ) );
 	harvestUrl = harvestUrl.replace( '#PROJECTNAME#', encodeURIComponent( projectName ) );
-	harvestUrl = harvestUrl.replace( '#TODOID#', data[3] );
+	harvestUrl = harvestUrl.replace( '#TODOID#', encodeURIComponent( todoID ) );
 	harvestUrl = harvestUrl.replace( '#TODONAME#', encodeURIComponent( todoName ) );
 	harvestUrl = harvestUrl.replace( '#BASEURL#', encodeURIComponent( url ) );
 
